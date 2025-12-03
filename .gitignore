@@ -1,1 +1,6 @@
 /NtSyscallHook/.vs
+/NtSyscallHook/Intermediate
+/NtSyscallHook/Build
+/NtSyscallClient/.vs
+/NtSyscallClient/Build
+/NtSyscallClient/Intermediate

@@ -3,21 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36717.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NtSyscallHook", "NtSyscallHook\NtSyscallHook.vcxproj", "{61BCC026-9060-F38B-FA71-2F09FD9EF759}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NtSyscallClient", "NtSyscallClient\NtSyscallClient.vcxproj", "{DE9EED5B-D7F4-4DA5-9452-325F5DBE57A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{61BCC026-9060-F38B-FA71-2F09FD9EF759}.Release|x64.ActiveCfg = Release|x64
-		{61BCC026-9060-F38B-FA71-2F09FD9EF759}.Release|x64.Build.0 = Release|x64
-		{61BCC026-9060-F38B-FA71-2F09FD9EF759}.Release|x64.Deploy.0 = Release|x64
+		{DE9EED5B-D7F4-4DA5-9452-325F5DBE57A8}.Release|x64.ActiveCfg = Release|x64
+		{DE9EED5B-D7F4-4DA5-9452-325F5DBE57A8}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8B69B245-8172-4D76-BF6C-1BAE29535816}
+		SolutionGuid = {7B78B7D2-467B-488C-A245-983E1A541792}
 	EndGlobalSection
 EndGlobal

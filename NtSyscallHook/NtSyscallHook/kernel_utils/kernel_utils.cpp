@@ -1,5 +1,7 @@
 #include "kernel_utils.h"
 
+#include <ntimage.h>
+
 typedef struct _LDR_DATA_TABLE_ENTRY
 {
 	LIST_ENTRY InLoadOrderLinks;
@@ -20,9 +22,30 @@ typedef struct _LDR_DATA_TABLE_ENTRY
 } LDR_DATA_TABLE_ENTRY, * PLDR_DATA_TABLE_ENTRY;
 
 extern "C" PVOID PsLoadedModuleList;
+extern "C" PIMAGE_NT_HEADERS NTAPI RtlImageNtHeader(PVOID Base);
 
 namespace kernel_utils
 {
+	bool getTextSection(PUCHAR base, PUCHAR& textBase, SIZE_T& textSize)
+	{
+		PIMAGE_NT_HEADERS ntHeaders = RtlImageNtHeader(base);
+		if (!ntHeaders)
+			return false;
+
+		PIMAGE_SECTION_HEADER section = IMAGE_FIRST_SECTION(ntHeaders);
+
+		for (ULONG i = 0; i < ntHeaders->FileHeader.NumberOfSections; i++)
+		{
+			if (memcmp(section[i].Name, ".text", 5) == 0)
+			{
+				textBase = base + section[i].VirtualAddress;
+				textSize = section[i].Misc.VirtualSize;
+				return true;
+			}
+		}
+		return false;
+	}
+
 	uintptr_t getKernelModuleBase(const char* name)
 	{
 		PLIST_ENTRY list = (PLIST_ENTRY)PsLoadedModuleList;
